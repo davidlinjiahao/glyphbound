@@ -1,0 +1,38 @@
+[
+  {
+    "id": "slash",
+    "name": "斩击",
+    "description": "对目标造成基础伤害",
+    "type": "attack",
+    "power": 12,
+    "unlockLevel": 1,
+    "color": "#e74c3c"
+  },
+  {
+    "id": "block",
+    "name": "格挡",
+    "description": "本回合减半所受伤害",
+    "type": "defend",
+    "power": 50,
+    "unlockLevel": 1,
+    "color": "#3498db"
+  },
+  {
+    "id": "heal",
+    "name": "疗伤",
+    "description": "恢复自身生命",
+    "type": "heal",
+    "power": 18,
+    "unlockLevel": 3,
+    "color": "#2ecc71"
+  },
+  {
+    "id": "fierce",
+    "name": "猛攻",
+    "description": "强力攻击，伤害更高",
+    "type": "attack",
+    "power": 22,
+    "unlockLevel": 5,
+    "color": "#9b59b6"
+  }
+]

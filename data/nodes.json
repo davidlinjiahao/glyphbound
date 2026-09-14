@@ -1,0 +1,128 @@
+[
+  {
+    "id": "plaza",
+    "name": "村庄广场",
+    "x": 50,
+    "y": 78,
+    "type": "hub",
+    "connections": ["path_south", "smithy", "herb_garden"],
+    "npc": "村长",
+    "description": "新手村的中心，村长在此等候"
+  },
+  {
+    "id": "smithy",
+    "name": "铁匠铺",
+    "x": 22,
+    "y": 68,
+    "type": "shop",
+    "connections": ["plaza"],
+    "npc": "铁匠",
+    "description": "叮叮当当，铁匠正在打铁"
+  },
+  {
+    "id": "herb_garden",
+    "name": "药草园",
+    "x": 78,
+    "y": 68,
+    "type": "gather",
+    "connections": ["plaza", "forest_path"],
+    "npc": "药师",
+    "description": "药草芬芳，药师在此采药"
+  },
+  {
+    "id": "path_south",
+    "name": "林间小路",
+    "x": 50,
+    "y": 58,
+    "type": "path",
+    "connections": ["plaza", "crossroads", "bridge"],
+    "description": "泥土小路通向北方森林"
+  },
+  {
+    "id": "crossroads",
+    "name": "十字路口",
+    "x": 50,
+    "y": 42,
+    "type": "path",
+    "connections": ["path_south", "outpost", "wolf_den", "deep_woods"],
+    "description": "四通八达的岔路"
+  },
+  {
+    "id": "bridge",
+    "name": "石桥",
+    "x": 28,
+    "y": 48,
+    "type": "path",
+    "connections": ["path_south", "camp"],
+    "description": "跨越小河的石桥"
+  },
+  {
+    "id": "outpost",
+    "name": "北方哨站",
+    "x": 50,
+    "y": 26,
+    "type": "hub",
+    "connections": ["crossroads", "hilltop"],
+    "npc": "守卫",
+    "description": "北方边境的守卫哨站"
+  },
+  {
+    "id": "wolf_den",
+    "name": "狼穴",
+    "x": 72,
+    "y": 36,
+    "type": "combat",
+    "connections": ["crossroads"],
+    "enemyIds": ["wolf", "wolf"],
+    "description": "灰狼出没的洞穴入口"
+  },
+  {
+    "id": "deep_woods",
+    "name": "林深",
+    "x": 78,
+    "y": 48,
+    "type": "combat",
+    "connections": ["crossroads", "ruins"],
+    "enemyIds": ["boar", "tree_spirit"],
+    "description": "幽深的森林深处"
+  },
+  {
+    "id": "camp",
+    "name": "营地篝火",
+    "x": 18,
+    "y": 36,
+    "type": "rest",
+    "connections": ["bridge", "stele"],
+    "description": "可以休息恢复生命的篝火"
+  },
+  {
+    "id": "stele",
+    "name": "古石碑",
+    "x": 18,
+    "y": 20,
+    "type": "trial",
+    "connections": ["camp"],
+    "npc": "石碑",
+    "description": "刻着古语的石碑——识字试炼"
+  },
+  {
+    "id": "hilltop",
+    "name": "山丘顶",
+    "x": 50,
+    "y": 12,
+    "type": "combat",
+    "connections": ["outpost"],
+    "enemyIds": ["golem"],
+    "description": "眺望远方的山丘之巅"
+  },
+  {
+    "id": "ruins",
+    "name": "废墟门",
+    "x": 88,
+    "y": 30,
+    "type": "combat",
+    "connections": ["deep_woods"],
+    "enemyIds": ["bandit", "wolf_boss"],
+    "description": "古老废墟的入口，危险潜伏"
+  }
+]

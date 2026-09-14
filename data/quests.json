@@ -1,0 +1,184 @@
+[
+  {
+    "id": "q1_welcome",
+    "title": "欢迎来到新手村",
+    "type": "talk",
+    "giver": "村长",
+    "giverNode": "plaza",
+    "description": "与村长对话，开始你的冒险。",
+    "objectives": [
+      { "type": "talk", "target": "村长", "count": 1, "label": "与村长说话" }
+    ],
+    "dialogue": [
+      { "speaker": "村长", "text": "欢迎，年轻的剑客！这里是新手村。" },
+      { "speaker": "村长", "text": "北方森林有危险。请帮助我们。" },
+      { "speaker": "村长", "text": "先去铁匠铺，见见铁匠吧。" }
+    ],
+    "rewards": { "xp": 20, "literacyXp": 10, "gold": 10, "items": [] },
+    "unlocks": ["q2_smith"],
+    "requiredLevel": 1
+  },
+  {
+    "id": "q2_smith",
+    "title": "铁匠的请求",
+    "type": "talk",
+    "giver": "铁匠",
+    "giverNode": "smithy",
+    "description": "去铁匠铺与铁匠对话。",
+    "objectives": [
+      { "type": "talk", "target": "铁匠", "count": 1, "label": "与铁匠说话" }
+    ],
+    "dialogue": [
+      { "speaker": "铁匠", "text": "你好！我需要皮毛来修补护甲。" },
+      { "speaker": "铁匠", "text": "请去狼穴，杀死两只灰狼，收集皮毛。" },
+      { "speaker": "铁匠", "text": "小心，狼很危险！" }
+    ],
+    "rewards": { "xp": 25, "literacyXp": 12, "gold": 15, "items": [{ "id": "wood_sword", "name": "木剑" }] },
+    "unlocks": ["q3_wolves"],
+    "requiredLevel": 1,
+    "requires": ["q1_welcome"]
+  },
+  {
+    "id": "q3_wolves",
+    "title": "猎杀灰狼",
+    "type": "kill",
+    "giver": "铁匠",
+    "giverNode": "smithy",
+    "description": "杀死两只灰狼，收集皮毛。",
+    "objectives": [
+      { "type": "kill", "target": "灰狼", "enemyId": "wolf", "count": 2, "label": "杀死灰狼" },
+      { "type": "collect", "target": "皮毛", "itemId": "pelt", "count": 2, "label": "收集皮毛" }
+    ],
+    "turnInNode": "smithy",
+    "turnInNpc": "铁匠",
+    "turnInDialogue": [
+      { "speaker": "铁匠", "text": "很好！这些皮毛正好。" },
+      { "speaker": "铁匠", "text": "给你一把木剑。去药草园见药师吧。" }
+    ],
+    "rewards": { "xp": 40, "literacyXp": 20, "gold": 25, "items": [{ "id": "wood_sword", "name": "木剑" }] },
+    "unlocks": ["q4_herbs"],
+    "requiredLevel": 1,
+    "requires": ["q2_smith"]
+  },
+  {
+    "id": "q4_herbs",
+    "title": "收集药草",
+    "type": "collect",
+    "giver": "药师",
+    "giverNode": "herb_garden",
+    "description": "在药草园收集三束药草。",
+    "objectives": [
+      { "type": "collect", "target": "药草", "itemId": "herb", "count": 3, "label": "收集药草", "gatherNode": "herb_garden" }
+    ],
+    "dialogue": [
+      { "speaker": "药师", "text": "你好。我需要三束药草。" },
+      { "speaker": "药师", "text": "就在这附近。请收集并交给我。" }
+    ],
+    "turnInNode": "herb_garden",
+    "turnInNpc": "药师",
+    "turnInDialogue": [
+      { "speaker": "药师", "text": "谢谢！这些药草可以做成药水。" },
+      { "speaker": "药师", "text": "北方哨站的守卫需要帮助。请去那里。" }
+    ],
+    "rewards": { "xp": 35, "literacyXp": 18, "gold": 20, "items": [{ "id": "potion", "name": "药水" }] },
+    "unlocks": ["q5_letter"],
+    "requiredLevel": 2,
+    "requires": ["q3_wolves"]
+  },
+  {
+    "id": "q5_letter",
+    "title": "送信到北方",
+    "type": "deliver",
+    "giver": "药师",
+    "giverNode": "herb_garden",
+    "description": "把信件交给北方哨站的守卫。",
+    "objectives": [
+      { "type": "deliver", "target": "守卫", "itemId": "letter", "count": 1, "label": "交给守卫信件", "deliverNode": "outpost" }
+    ],
+    "startItems": [{ "id": "letter", "name": "信件" }],
+    "dialogue": [
+      { "speaker": "药师", "text": "请把这封信件交给北方哨站的守卫。" },
+      { "speaker": "药师", "text": "沿着小路向北方前进。" }
+    ],
+    "turnInDialogue": [
+      { "speaker": "守卫", "text": "信件？谢谢。药师的消息很重要。" },
+      { "speaker": "守卫", "text": "林深有盗贼。请去调查。" }
+    ],
+    "rewards": { "xp": 45, "literacyXp": 22, "gold": 30, "items": [] },
+    "unlocks": ["q6_bandits"],
+    "requiredLevel": 2,
+    "requires": ["q4_herbs"]
+  },
+  {
+    "id": "q6_bandits",
+    "title": "清除盗贼",
+    "type": "kill",
+    "giver": "守卫",
+    "giverNode": "outpost",
+    "description": "在林深或废墟杀死一只盗贼。",
+    "objectives": [
+      { "type": "kill", "target": "盗贼", "enemyId": "bandit", "count": 1, "label": "杀死盗贼" }
+    ],
+    "turnInNode": "outpost",
+    "turnInNpc": "守卫",
+    "turnInDialogue": [
+      { "speaker": "守卫", "text": "干得好！道路安全多了。" },
+      { "speaker": "守卫", "text": "山丘顶有石傀儡。你准备好了吗？" }
+    ],
+    "rewards": { "xp": 55, "literacyXp": 25, "gold": 35, "items": [{ "id": "iron_sword", "name": "铁剑" }] },
+    "unlocks": ["q7_golem"],
+    "requiredLevel": 3,
+    "requires": ["q5_letter"]
+  },
+  {
+    "id": "q7_golem",
+    "title": "石傀儡之战",
+    "type": "kill",
+    "giver": "守卫",
+    "giverNode": "outpost",
+    "description": "前往山丘顶，击败石傀儡。",
+    "objectives": [
+      { "type": "kill", "target": "石傀儡", "enemyId": "golem", "count": 1, "label": "击败石傀儡" }
+    ],
+    "turnInNode": "outpost",
+    "turnInNpc": "守卫",
+    "turnInDialogue": [
+      { "speaker": "守卫", "text": "了不起！你的力量很强。" },
+      { "speaker": "守卫", "text": "去古石碑接受识字试炼吧。" }
+    ],
+    "rewards": { "xp": 70, "literacyXp": 30, "gold": 50, "items": [{ "id": "stone_core", "name": "石核" }] },
+    "unlocks": ["q8_trial"],
+    "requiredLevel": 4,
+    "requires": ["q6_bandits"]
+  },
+  {
+    "id": "q8_trial",
+    "title": "识字试炼",
+    "type": "trial",
+    "giver": "石碑",
+    "giverNode": "stele",
+    "description": "在古石碑完成识字试炼。偷看次数有限！",
+    "objectives": [
+      { "type": "trial", "target": "识字试炼", "count": 1, "label": "通过识字试炼" }
+    ],
+    "trial": {
+      "maxPeeks": 3,
+      "prompt": "石碑上写着：选择正确的技能来击败敌人。",
+      "enemyId": "wolf_boss",
+      "requiredSkillReads": true
+    },
+    "dialogue": [
+      { "speaker": "石碑", "text": "试炼开始。你只能偷看三次。" },
+      { "speaker": "石碑", "text": "阅读技能名称，选择正确的攻击。" },
+      { "speaker": "石碑", "text": "无偷看可获更多识字经验！" }
+    ],
+    "turnInDialogue": [
+      { "speaker": "石碑", "text": "你通过了试炼。智慧与勇气并存。" },
+      { "speaker": "石碑", "text": "字境欢迎真正的剑客。继续冒险吧！" }
+    ],
+    "rewards": { "xp": 100, "literacyXp": 80, "gold": 60, "items": [{ "id": "trial_badge", "name": "试炼徽章" }] },
+    "unlocks": [],
+    "requiredLevel": 5,
+    "requires": ["q7_golem"]
+  }
+]

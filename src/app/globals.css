@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #1a252f;
+  --accent: #f1c40f;
+  --poly-green: #27ae60;
+  --poly-blue: #2980b9;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #0d151c;
+  color: #1a252f;
+  font-family: "Segoe UI", "PingFang SC", "Noto Sans SC", "Microsoft YaHei",
+    system-ui, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior: none;
+}
+
+/* Mobile-first phone frame */
+.game-frame {
+  max-width: 430px;
+  margin: 0 auto;
+  min-height: 100dvh;
+  background: #ecf0f1;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+@layer components {
+  .btn-primary {
+    @apply py-3.5 px-4 rounded-2xl bg-[#f1c40f] text-[#1a252f] font-black text-lg
+      shadow-md active:scale-[0.97] transition border-b-4 border-[#b7950b]
+      disabled:opacity-40;
+  }
+  .btn-secondary {
+    @apply py-3.5 px-4 rounded-2xl bg-[#2980b9] text-white font-bold text-lg
+      shadow-md active:scale-[0.97] transition border-b-4 border-[#1a5276];
+  }
+  .btn-danger {
+    @apply py-3.5 px-4 rounded-2xl bg-[#e74c3c] text-white font-black text-lg
+      shadow-md active:scale-[0.97] transition border-b-4 border-[#922b21];
+  }
+  .card {
+    @apply bg-white/95 rounded-2xl p-3 shadow-md border border-black/5;
+  }
+}
+
+/* Tappable Chinese gloss words */
+.gloss-word {
+  display: inline;
+  padding: 0 1px;
+  border-radius: 3px;
+  background: transparent;
+  border: none;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+.gloss-word:active,
+.gloss-word:focus-visible {
+  background: rgba(241, 196, 15, 0.35);
+  outline: none;
+}
