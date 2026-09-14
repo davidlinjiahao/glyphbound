@@ -87,3 +87,11 @@ Tapping Chinese shows English + pinyin. Acting without peeking grants bonus 识�
 ## Out of scope
 
 Multiplayer, voice, handwriting, LLM NPCs, full 3D engine.
+
+## Deploy
+
+- **Local:** `/workspace/glyphbound` — `npm run build` must pass
+- **GitHub:** https://github.com/davidlinjiahao/glyphbound
+- **Vercel:** https://glyphbound-align-2caebdf4.vercel.app (team `align-2caebdf4`)
+
+If the URL redirects to Vercel SSO, disable **Deployment Protection → Vercel Authentication** on the project (requires team dashboard / MCP scope re-auth).
